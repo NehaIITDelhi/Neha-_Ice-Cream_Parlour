@@ -3,66 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Dairy Menu - Neha Parlour</title>
+    <title>Medha Product Catalogue - Neha Parlour</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     
     <style>
-        /* --- CLASSY THEME SETUP --- */
+        /* --- ROYAL THEME --- */
         :root {
-            --royal-blue: #0f172a;  /* Very Dark Blue */
-            --gold-main: #d4af37;   /* Metallic Gold */
-            --gold-light: #f3e5ab;
-            --bg-color: #f8f9fa;
+            --royal-blue: #0a2351;    
+            --royal-light: #1e3a8a;   
+            --gold-main: #d4af37;     
+            --cream-bg: #f8f9fa;      
         }
 
         body { 
             font-family: 'Poppins', sans-serif; 
-            background-color: var(--bg-color); 
+            background-color: var(--cream-bg); 
             color: #333;
         }
         
-        /* --- HEADER SECTION --- */
-        .dairy-header { 
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+        /* --- HEADER --- */
+        .menu-header { 
+            background: linear-gradient(135deg, var(--royal-blue) 0%, var(--royal-light) 100%);
             color: white; 
-            padding: 50px 20px 90px 20px; 
+            padding: 50px 20px 90px 20px;
             text-align: center; 
-            border-radius: 0 0 50% 50% / 40px; /* Elegant Curve */
+            border-radius: 0 0 50% 50% / 40px; 
             position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 30px rgba(10, 35, 81, 0.3);
         }
         
         .header-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--gold-main); /* Gold Text */
+            font-size: 2.8rem;
+            color: var(--gold-main);
             margin-bottom: 5px;
             letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
         .back-btn { 
             position: absolute; 
-            top: 25px; 
-            left: 25px; 
+            top: 25px; left: 25px; 
             color: var(--gold-main); 
             font-size: 1.5rem; 
             text-decoration: none; 
-            transition: 0.3s; 
             background: rgba(255,255,255,0.1);
-            width: 40px; height: 40px;
+            border: 1px solid var(--gold-main);
+            width: 45px; height: 45px;
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
+            transition: 0.3s;
         }
-        .back-btn:hover { background: var(--gold-main); color: #000; }
+        .back-btn:hover { background: var(--gold-main); color: var(--royal-blue); }
 
-        /* --- GLASS SEARCH BAR --- */
+        /* --- SEARCH BAR --- */
         .search-container {
             margin-top: -35px; 
             max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-left: auto; margin-right: auto;
             position: relative;
             z-index: 10;
             padding: 0 15px;
@@ -71,33 +71,29 @@
             width: 100%;
             padding: 18px 25px;
             border-radius: 50px;
-            border: 2px solid rgba(255,255,255,0.8);
-            background: rgba(255, 255, 255, 0.95); /* Frosted Glass Look */
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            font-size: 1rem;
+            border: 2px solid white;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 15px 35px rgba(10, 35, 81, 0.15);
+            font-size: 1.1rem;
             outline: none;
-            transition: 0.3s;
-            font-family: 'Playfair Display', serif; /* Classy font for typing */
+            color: var(--royal-blue);
+            font-family: 'Playfair Display', serif;
         }
-        .search-box:focus { border-color: var(--gold-main); transform: translateY(-2px); }
+        .search-box:focus { border-color: var(--gold-main); }
         .search-icon {
-            position: absolute;
-            right: 40px;
-            top: 50%;
+            position: absolute; right: 40px; top: 50%;
             transform: translateY(-50%);
             color: var(--gold-main);
             font-size: 1.2rem;
         }
 
-        /* --- ELEGANT PRODUCT CARD --- */
+        /* --- PRODUCT CARD --- */
         .menu-item { 
             background: white; 
             border-radius: 20px; 
             padding: 20px; 
-            margin-bottom: 20px; 
-            box-shadow: 0 5px 20px rgba(0,0,0,0.03); /* Very soft shadow */
-            display: flex; 
-            align-items: center; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03); 
+            display: flex; align-items: center; 
             transition: all 0.3s ease;
             height: 100%; 
             border: 1px solid transparent;
@@ -105,7 +101,6 @@
             overflow: hidden;
         }
         
-        /* Gold hover effect */
         .menu-item:hover { 
             transform: translateY(-5px); 
             box-shadow: 0 15px 30px rgba(212, 175, 55, 0.15); 
@@ -119,7 +114,8 @@
             margin-right: 20px;
             background: #fff;
             padding: 5px;
-            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.05)); /* Makes image pop */
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.05));
+            border: 1px solid #eee;
         }
         @media (min-width: 768px) {
             .product-thumb { width: 130px; height: 130px; }
@@ -129,214 +125,231 @@
         .item-name { 
             font-family: 'Playfair Display', serif;
             font-weight: 700; 
-            color: #222; 
-            font-size: 1.2rem; 
+            color: var(--royal-blue); 
+            font-size: 1.3rem; 
             margin-bottom: 4px; 
         }
-        .item-qty { font-size: 0.85rem; color: #888; letter-spacing: 0.5px; text-transform: uppercase; }
+        .item-qty { font-size: 0.9rem; color: #777; font-weight: 300; }
         
         .badge-fresh { 
-            background-color: #fff8e1; /* Pale Gold Bg */
-            color: #bfa15f; /* Dark Gold Text */
+            background-color: var(--royal-blue);
+            color: var(--gold-main);
             font-size: 0.7rem; 
-            padding: 4px 10px; 
+            padding: 4px 12px; 
             border-radius: 20px; 
             font-weight: 600; 
-            margin-top: 5px;
+            margin-top: 8px;
             display: inline-block;
+            letter-spacing: 0.5px;
         }
 
-        /* --- GOLD PRICE TAG --- */
-        .price-tag { 
-            background: linear-gradient(45deg, #d4af37, #f3e5ab);
-            color: #0f172a; 
-            padding: 8px 18px; 
-            border-radius: 50px; 
-            font-weight: 800; 
-            font-size: 1.1rem;
-            min-width: 80px;
+        /* --- SMALL ORDER BUTTON (Replaces Price) --- */
+        .btn-small-order {
+            background-color: white;
+            color: var(--royal-blue);
+            border: 1px solid var(--royal-blue);
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            text-decoration: none;
+            transition: 0.3s;
+            flex-shrink: 0; /* Prevents button from squishing */
+        }
+        .btn-small-order:hover {
+            background-color: var(--royal-blue);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* --- HEADERS --- */
+        .section-header-container {
             text-align: center;
-            box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+            margin-top: 40px; margin-bottom: 25px;
+            position: relative;
         }
-
-        /* --- SECTION HEADERS --- */
         .section-label {
             display: inline-block;
-            background: #fff;
-            padding: 8px 25px;
+            background: white;
+            padding: 10px 35px;
             border-radius: 50px;
             color: var(--royal-blue);
             font-family: 'Playfair Display', serif;
             font-weight: bold;
-            border: 1px solid #eee;
-            margin-top: 30px;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            font-size: 1.2rem;
+            border: 2px solid var(--gold-main);
+            box-shadow: 0 5px 15px rgba(10, 35, 81, 0.1);
+            position: relative; z-index: 2;
+        }
+        .section-header-container::after {
+            content: ''; position: absolute;
+            top: 50%; left: 10%; right: 10%;
+            height: 1px; background: var(--gold-main);
+            z-index: 1; opacity: 0.3;
         }
         
-        /* --- FLOATING CALL BUTTON --- */
+        /* --- FLOATING BUTTON --- */
         .btn-call-floating {
             position: fixed;
-            bottom: 30px;
-            left: 50%;
+            bottom: 30px; left: 50%;
             transform: translateX(-50%);
-            background: linear-gradient(45deg, #0f172a, #2c3e50);
+            background: linear-gradient(45deg, var(--royal-blue), var(--royal-light));
             color: var(--gold-main);
             padding: 15px 40px;
             border-radius: 50px;
             font-weight: bold;
             font-size: 1.1rem;
-            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.4);
+            box-shadow: 0 10px 25px rgba(10, 35, 81, 0.4);
             text-decoration: none;
             z-index: 1000;
-            display: flex;
-            align-items: center;
+            display: flex; align-items: center;
             border: 2px solid var(--gold-main);
             transition: 0.3s;
+            white-space: nowrap;
         }
         .btn-call-floating:hover {
             transform: translateX(-50%) scale(1.05);
             color: white;
-            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.6);
+            background: var(--royal-blue);
         }
     </style>
 </head>
 <body>
 
-    <div class="dairy-header">
+    <div class="menu-header">
         <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i></a>
-        <h1 class="header-title">The Dairy Collection</h1>
-        <p class="mb-0 opacity-75" style="letter-spacing: 2px; font-size: 0.8rem;">PURE • FRESH • PREMIUM</p>
+        <h1 class="header-title">Our Products</h1>
+        <p class="mb-0 opacity-75" style="letter-spacing: 2px; font-size: 0.9rem;">MEDHA DAIRY COLLECTION</p>
     </div>
 
     <div class="container">
         <div class="search-container">
-            <input type="text" id="searchInput" class="search-box" placeholder="Search our collection..." onkeyup="filterMenu()">
+            <input type="text" id="searchInput" class="search-box" placeholder="Search products..." onkeyup="filterMenu()">
             <i class="fas fa-search search-icon"></i>
         </div>
     </div>
 
-    <div class="container pb-5" style="margin-top: 20px;">
+    <div class="container pb-5" style="margin-top: 30px;">
         
-        <div class="row g-3" id="menuList">
+        <div class="row g-4" id="menuList">
             
-            <div class="col-12 text-center"><span class="section-label">✨ Fresh Milk</span></div>
+            <div class="col-12 section-header-container"><span class="section-label">🥛 Daily Essentials</span></div>
             
             <div class="col-lg-6 col-md-12 product-card">
                 <div class="menu-item">
-                    <img src="milk-blue.jpg" alt="Toned Milk" class="product-thumb">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV9DtQTW-Z7ilbJHP2-dfvjJXFH302Oelb0A&s" alt="Doodh" class="product-thumb">
                     <div class="item-details">
-                        <div class="item-name">Medha Toned</div>
-                        <div class="item-qty">500ml Packet (Blue)</div>
-                        <span class="badge-fresh">Daily Morning</span>
+                        <div class="item-name">Fresh Doodh (Milk)</div>
+                        <div class="item-qty">Toned & Full Cream</div>
+                        <span class="badge-fresh">Daily Supply</span>
                     </div>
-                    <div class="price-tag">₹26</div>
+                    <a href="tel:+919934506226" class="btn-small-order"><i class="fas fa-phone-alt"></i></a>
                 </div>
             </div>
 
             <div class="col-lg-6 col-md-12 product-card">
                 <div class="menu-item">
-                    <img src="milk-orange.jpg" alt="Full Cream Milk" class="product-thumb">
+                    <img src="https://www.jiomart.com/images/product/original/491934861/medha-taazaa-dahi-400-g-pouch-product-images-o491934861-p590086868-0-202409131747.jpg?im=Resize=(420,420)" alt="Dahi" class="product-thumb">
                     <div class="item-details">
-                        <div class="item-name">Medha Gold</div>
-                        <div class="item-qty">500ml (Full Cream)</div>
+                        <div class="item-name">Thick Dahi (Curd)</div>
+                        <div class="item-qty">Pouch & Cup</div>
+                        <span class="badge-fresh">Fresh Stock</span>
+                    </div>
+                    <a href="tel:+919934506226" class="btn-small-order"><i class="fas fa-phone-alt"></i></a>
+                </div>
+            </div>
+
+            <div class="col-12 section-header-container"><span class="section-label">🧀 Rich Dairy</span></div>
+
+            <div class="col-lg-6 col-md-12 product-card">
+                <div class="menu-item">
+                    <img src="https://jmf.coop/wp-content/uploads/2018/06/prod_paneer.jpg" alt="Paneer" class="product-thumb">
+                    <div class="item-details">
+                        <div class="item-name">Malai Paneer</div>
+                        <div class="item-qty">Soft & Fresh</div>
                         <span class="badge-fresh">Best Seller</span>
                     </div>
-                    <div class="price-tag">₹34</div>
+                    <a href="tel:+919934506226" class="btn-small-order"><i class="fas fa-phone-alt"></i></a>
                 </div>
             </div>
 
             <div class="col-lg-6 col-md-12 product-card">
                 <div class="menu-item">
-                    <img src="milk-blue.jpg" alt="Toned Milk Large" class="product-thumb">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2023/10/353031125/LN/AS/KF/189456110/fresh-mawa-500x500.jpg" alt="Khowa" class="product-thumb">
                     <div class="item-details">
-                        <div class="item-name">Family Pack Toned</div>
-                        <div class="item-qty">1 Litre Packet</div>
-                        <span class="badge-fresh">Value Pack</span>
+                        <div class="item-name">Pure Khowa (Mawa)</div>
+                        <div class="item-qty">For Sweets</div>
+                        <span class="badge-fresh">Premium Quality</span>
                     </div>
-                    <div class="price-tag">₹52</div>
+                    <a href="tel:+919934506226" class="btn-small-order"><i class="fas fa-phone-alt"></i></a>
                 </div>
             </div>
-            
+
+             <div class="col-12 section-header-container"><span class="section-label">🥤 Drinks</span></div>
+
+             <div class="col-lg-6 col-md-12 product-card">
+                 <div class="menu-item">
+                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa1nS9JP2aifUwc-QjBkeUiuSiQAtXdYA8Zw&s" alt="Lassi" class="product-thumb">
+                     <div class="item-details">
+                         <div class="item-name">Medha Lassi</div>
+                         <div class="item-qty">Refreshing Drink</div>
+                         <span class="badge-fresh">Chilled</span>
+                     </div>
+                     <a href="tel:+919934506226" class="btn-small-order"><i class="fas fa-phone-alt"></i></a>
+                 </div>
+             </div>
+
+            <div class="col-12 section-header-container"><span class="section-label">🍮 Sweets</span></div>
+
+            <div class="col-lg-6 col-md-12 product-card">
+                <div class="menu-item">
+                    <img src="https://www.jiomart.com/images/product/original/491934863/medha-mishti-doi-80-g-cup-product-images-o491934863-p590086863-0-202408010051.jpg?im=Resize=(1000,1000)" alt="Mitha Dahi" class="product-thumb">
+                    <div class="item-details">
+                        <div class="item-name">Mitha Dahi (Mishti Doi)</div>
+                        <div class="item-qty">Sweet Dessert</div>
+                        <span class="badge-fresh">Traditional</span>
+                    </div>
+                    <a href="tel:+919934506226" class="btn-small-order"><i class="fas fa-phone-alt"></i></a>
+                </div>
+            </div>
+
              <div class="col-lg-6 col-md-12 product-card">
                 <div class="menu-item">
-                    <img src="milk-orange.jpg" alt="Tea Special" class="product-thumb">
+                    <img src="https://i.ytimg.com/vi/E9v-x8IspCw/oardefault.jpg?sqp=-oaymwEYCJUDENAFSFqQAgHyq4qpAwcIARUAAIhC&rs=AOn4CLCNMwcIyv5uK23kaD1njsKg5qUw7g" alt="Rabdi" class="product-thumb">
                     <div class="item-details">
-                        <div class="item-name">Tea Special Milk</div>
-                        <div class="item-qty">1 Litre Packet</div>
-                        <span class="badge-fresh">Extra Thick</span>
+                        <div class="item-name">Creamy Rabdi</div>
+                        <div class="item-qty">Rich Taste</div>
+                        <span class="badge-fresh">Must Try</span>
                     </div>
-                    <div class="price-tag">₹56</div>
+                    <a href="tel:+919934506226" class="btn-small-order"><i class="fas fa-phone-alt"></i></a>
                 </div>
             </div>
 
-
-            <div class="col-12 text-center"><span class="section-label">🧀 Paneer & Curd</span></div>
-
-            <div class="col-lg-6 col-md-12 product-card">
+             <div class="col-lg-6 col-md-12 product-card">
                 <div class="menu-item">
-                    <img src="paneer.jpg" alt="Paneer" class="product-thumb">
+                    <img src="https://newswing.com/wp-content/uploads/2022/10/medha.jpg" alt="Peda" class="product-thumb">
                     <div class="item-details">
-                        <div class="item-name">Premium Paneer</div>
-                        <div class="item-qty">200g Packet</div>
-                        <span class="badge-fresh">Soft Malai</span>
+                        <div class="item-name">Kesar Peda</div>
+                        <div class="item-qty">Box Available</div>
+                        <span class="badge-fresh">Pure Ghee</span>
                     </div>
-                    <div class="price-tag">₹90</div>
+                    <a href="tel:+919934506226" class="btn-small-order"><i class="fas fa-phone-alt"></i></a>
                 </div>
             </div>
 
-            <div class="col-lg-6 col-md-12 product-card">
+             <div class="col-lg-6 col-md-12 product-card">
                 <div class="menu-item">
-                    <img src="dahi.jpg" alt="Dahi" class="product-thumb">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdv6JZf3fgFXwuPJBPIurBbCbCQzi0G_2NpQ&s" alt="Laddu" class="product-thumb">
                     <div class="item-details">
-                        <div class="item-name">Classic Dahi</div>
-                        <div class="item-qty">400g Pouch</div>
-                        <span class="badge-fresh">Thick Set</span>
+                        <div class="item-name">Desi Ghee Laddu</div>
+                        <div class="item-qty">Festive Special</div>
+                        <span class="badge-fresh">Homemade Taste</span>
                     </div>
-                    <div class="price-tag">₹35</div>
+                    <a href="tel:+919934506226" class="btn-small-order"><i class="fas fa-phone-alt"></i></a>
                 </div>
             </div>
 
-            <div class="col-lg-6 col-md-12 product-card">
-                <div class="menu-item">
-                    <img src="mishti.jpg" alt="Mishti Doi" class="product-thumb">
-                    <div class="item-details">
-                        <div class="item-name">Mishti Doi</div>
-                        <div class="item-qty">80g Cup</div>
-                        <span class="badge-fresh">Sweet Dessert</span>
-                    </div>
-                    <div class="price-tag">₹15</div>
-                </div>
-            </div>
-
-            <div class="col-12 text-center"><span class="section-label">🏺 Essentials</span></div>
-
-            <div class="col-lg-6 col-md-12 product-card">
-                <div class="menu-item">
-                    <img src="lassi.jpg" alt="Lassi" class="product-thumb">
-                    <div class="item-details">
-                        <div class="item-name">Refreshing Lassi</div>
-                        <div class="item-qty">Standard Pack</div>
-                        <span class="badge-fresh">Chilled</span>
-                    </div>
-                    <div class="price-tag">₹12</div>
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-md-12 product-card">
-                <div class="menu-item">
-                    <img src="ghee.jpg" alt="Ghee" class="product-thumb">
-                    <div class="item-details">
-                        <div class="item-name">Pure Cow Ghee</div>
-                        <div class="item-qty">500ml Jar</div>
-                        <span class="badge-fresh">100% Pure</span>
-                    </div>
-                    <div class="price-tag">₹340</div>
-                </div>
-            </div>
-
-        </div> <div style="height: 100px;"></div>
-
+        </div> 
+        <div style="height: 120px;"></div>
     </div>
 
     <a href="tel:+919934506226" class="btn-call-floating">
@@ -345,11 +358,10 @@
 
     <script>
         function filterMenu() {
-            var input, filter, cards, cardContainer, title, i;
+            var input, filter, cards, title, i;
             input = document.getElementById("searchInput");
             filter = input.value.toUpperCase();
-            cardContainer = document.getElementById("menuList");
-            cards = cardContainer.getElementsByClassName("product-card");
+            cards = document.getElementsByClassName("product-card");
             
             for (i = 0; i < cards.length; i++) {
                 title = cards[i].querySelector(".item-name");
