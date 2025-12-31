@@ -21,22 +21,24 @@
             font-family: 'Poppins', sans-serif; 
             background-color: var(--cream-bg); 
             color: #333;
+            /* Prevent horizontal scroll */
+            overflow-x: hidden; 
         }
         
         /* --- HEADER --- */
         .menu-header { 
             background: linear-gradient(135deg, var(--royal-blue) 0%, var(--royal-light) 100%);
             color: white; 
-            padding: 50px 20px 90px 20px;
+            padding: 40px 20px 80px 20px;
             text-align: center; 
-            border-radius: 0 0 50% 50% / 40px; 
+            border-radius: 0 0 50% 50% / 30px; 
             position: relative;
             box-shadow: 0 10px 30px rgba(10, 35, 81, 0.3);
         }
         
         .header-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             color: var(--gold-main);
             margin-bottom: 5px;
             letter-spacing: 1px;
@@ -45,54 +47,62 @@
 
         .back-btn { 
             position: absolute; 
-            top: 25px; left: 25px; 
+            top: 20px; left: 20px; 
             color: var(--gold-main); 
-            font-size: 1.5rem; 
+            font-size: 1.2rem; 
             text-decoration: none; 
             background: rgba(255,255,255,0.1);
             border: 1px solid var(--gold-main);
-            width: 45px; height: 45px;
+            width: 40px; height: 40px;
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             transition: 0.3s;
         }
-        .back-btn:hover { background: var(--gold-main); color: var(--royal-blue); }
 
-        /* --- SEARCH BAR --- */
+        /* --- STICKY SEARCH BAR (Mobile Friendly) --- */
+        .search-wrapper {
+            position: -webkit-sticky; /* Safari */
+            position: sticky;
+            top: 15px;
+            z-index: 100;
+            padding: 0 15px;
+            margin-top: -35px;
+        }
+
         .search-container {
-            margin-top: -35px; 
             max-width: 600px;
             margin-left: auto; margin-right: auto;
             position: relative;
-            z-index: 10;
-            padding: 0 15px;
         }
+        
         .search-box {
             width: 100%;
-            padding: 18px 25px;
+            padding: 15px 25px;
             border-radius: 50px;
             border: 2px solid white;
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 15px 35px rgba(10, 35, 81, 0.15);
-            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 10px 25px rgba(10, 35, 81, 0.15);
+            font-size: 1rem;
             outline: none;
             color: var(--royal-blue);
             font-family: 'Playfair Display', serif;
+            /* Add backdrop blur for premium feel */
+            backdrop-filter: blur(10px);
         }
         .search-box:focus { border-color: var(--gold-main); }
         .search-icon {
-            position: absolute; right: 40px; top: 50%;
+            position: absolute; right: 25px; top: 50%;
             transform: translateY(-50%);
             color: var(--gold-main);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         /* --- PRODUCT CARD --- */
         .menu-item { 
             background: white; 
-            border-radius: 20px; 
-            padding: 20px; 
-            box-shadow: 0 5px 20px rgba(0,0,0,0.03); 
+            border-radius: 15px; 
+            padding: 15px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03); 
             display: flex; align-items: center; 
             transition: all 0.3s ease;
             height: 100%; 
@@ -101,88 +111,91 @@
             overflow: hidden;
         }
         
-        .menu-item:hover { 
-            transform: translateY(-5px); 
-            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.15); 
-            border-color: var(--gold-main);
+        /* Hover effects only for desktop to prevent sticky hover on mobile */
+        @media (min-width: 992px) {
+            .menu-item:hover { 
+                transform: translateY(-5px); 
+                box-shadow: 0 15px 30px rgba(212, 175, 55, 0.15); 
+                border-color: var(--gold-main);
+            }
         }
 
         .product-thumb {
-            width: 100px; height: 100px;
+            width: 90px; height: 90px;
             object-fit: contain;
-            border-radius: 15px;
-            margin-right: 20px;
+            border-radius: 12px;
+            margin-right: 15px;
             background: #fff;
             padding: 5px;
-            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.05));
-            border: 1px solid #eee;
-        }
-        @media (min-width: 768px) {
-            .product-thumb { width: 130px; height: 130px; }
+            border: 1px solid #f0f0f0;
+            flex-shrink: 0; /* Prevents image from shrinking */
         }
 
-        .item-details { flex-grow: 1; }
+        .item-details { flex-grow: 1; min-width: 0; /* Fix flex overflow text */ }
+        
         .item-name { 
             font-family: 'Playfair Display', serif;
             font-weight: 700; 
             color: var(--royal-blue); 
-            font-size: 1.3rem; 
-            margin-bottom: 4px; 
+            font-size: 1.15rem; 
+            margin-bottom: 2px;
+            line-height: 1.2; 
         }
-        .item-qty { font-size: 0.9rem; color: #777; font-weight: 300; }
+        .item-qty { font-size: 0.85rem; color: #777; font-weight: 300; }
         
         .badge-fresh { 
-            background-color: var(--royal-blue);
-            color: var(--gold-main);
-            font-size: 0.7rem; 
-            padding: 4px 12px; 
-            border-radius: 20px; 
+            background-color: rgba(10, 35, 81, 0.08); /* Softer background */
+            color: var(--royal-blue);
+            font-size: 0.65rem; 
+            padding: 3px 10px; 
+            border-radius: 15px; 
             font-weight: 600; 
-            margin-top: 8px;
+            margin-top: 6px;
             display: inline-block;
-            letter-spacing: 0.5px;
+            border: 1px solid rgba(10, 35, 81, 0.1);
         }
 
-        /* --- SMALL ORDER BUTTON (Replaces Price) --- */
+        /* --- BUTTONS --- */
         .btn-small-order {
-            background-color: white;
+            background-color: var(--cream-bg);
             color: var(--royal-blue);
             border: 1px solid var(--royal-blue);
-            width: 40px; height: 40px;
+            width: 45px; height: 45px; /* Larger touch target */
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             text-decoration: none;
-            transition: 0.3s;
-            flex-shrink: 0; /* Prevents button from squishing */
+            transition: 0.2s;
+            flex-shrink: 0;
+            margin-left: 10px;
         }
-        .btn-small-order:hover {
+        .btn-small-order:active {
             background-color: var(--royal-blue);
             color: white;
-            transform: scale(1.1);
+            transform: scale(0.95);
         }
 
-        /* --- HEADERS --- */
+        /* --- SECTION HEADERS --- */
         .section-header-container {
             text-align: center;
-            margin-top: 40px; margin-bottom: 25px;
+            margin-top: 30px; margin-bottom: 15px;
             position: relative;
         }
         .section-label {
             display: inline-block;
             background: white;
-            padding: 10px 35px;
+            padding: 8px 25px;
             border-radius: 50px;
             color: var(--royal-blue);
             font-family: 'Playfair Display', serif;
             font-weight: bold;
-            font-size: 1.2rem;
-            border: 2px solid var(--gold-main);
-            box-shadow: 0 5px 15px rgba(10, 35, 81, 0.1);
+            font-size: 1.1rem;
+            border: 1px solid var(--gold-main);
+            box-shadow: 0 4px 10px rgba(10, 35, 81, 0.08);
             position: relative; z-index: 2;
         }
         .section-header-container::after {
             content: ''; position: absolute;
-            top: 50%; left: 10%; right: 10%;
+            top: 50%; left: 5%; right: 5%;
             height: 1px; background: var(--gold-main);
             z-index: 1; opacity: 0.3;
         }
@@ -190,26 +203,37 @@
         /* --- FLOATING BUTTON --- */
         .btn-call-floating {
             position: fixed;
-            bottom: 30px; left: 50%;
+            bottom: 25px; left: 50%;
             transform: translateX(-50%);
             background: linear-gradient(45deg, var(--royal-blue), var(--royal-light));
             color: var(--gold-main);
-            padding: 15px 40px;
+            padding: 14px 35px;
             border-radius: 50px;
             font-weight: bold;
-            font-size: 1.1rem;
-            box-shadow: 0 10px 25px rgba(10, 35, 81, 0.4);
+            font-size: 1rem;
+            box-shadow: 0 8px 20px rgba(10, 35, 81, 0.4);
             text-decoration: none;
             z-index: 1000;
             display: flex; align-items: center;
-            border: 2px solid var(--gold-main);
-            transition: 0.3s;
+            border: 1px solid var(--gold-main);
             white-space: nowrap;
+            width: auto;
+            max-width: 90%;
+            justify-content: center;
         }
-        .btn-call-floating:hover {
-            transform: translateX(-50%) scale(1.05);
-            color: white;
-            background: var(--royal-blue);
+
+        /* --- MOBILE SPECIFIC TWEAKS --- */
+        @media (max-width: 768px) {
+            .header-title { font-size: 2rem; }
+            .menu-header { padding-bottom: 60px; }
+            .search-box { padding: 12px 20px; font-size: 0.95rem; }
+            
+            /* Make Grid tighter on mobile */
+            .row { --bs-gutter-x: 1rem; --bs-gutter-y: 1rem; }
+            
+            .product-thumb { width: 80px; height: 80px; margin-right: 12px; }
+            .item-name { font-size: 1.05rem; }
+            .menu-item { padding: 12px; }
         }
     </style>
 </head>
@@ -218,23 +242,23 @@
     <div class="menu-header">
         <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i></a>
         <h1 class="header-title">Our Products</h1>
-        <p class="mb-0 opacity-75" style="letter-spacing: 2px; font-size: 0.9rem;">MEDHA DAIRY COLLECTION</p>
+        <p class="mb-0 opacity-75" style="letter-spacing: 2px; font-size: 0.8rem;">MEDHA DAIRY COLLECTION</p>
     </div>
 
-    <div class="container">
+    <div class="search-wrapper">
         <div class="search-container">
             <input type="text" id="searchInput" class="search-box" placeholder="Search products..." onkeyup="filterMenu()">
             <i class="fas fa-search search-icon"></i>
         </div>
     </div>
 
-    <div class="container pb-5" style="margin-top: 30px;">
+    <div class="container pb-5" style="margin-top: 20px;">
         
-        <div class="row g-4" id="menuList">
+        <div class="row" id="menuList">
             
             <div class="col-12 section-header-container"><span class="section-label">🥛 Daily Essentials</span></div>
             
-            <div class="col-lg-6 col-md-12 product-card">
+            <div class="col-lg-6 col-md-12 col-12 product-card mb-3">
                 <div class="menu-item">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV9DtQTW-Z7ilbJHP2-dfvjJXFH302Oelb0A&s" alt="Doodh" class="product-thumb">
                     <div class="item-details">
@@ -246,7 +270,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-6 col-md-12 product-card">
+            <div class="col-lg-6 col-md-12 col-12 product-card mb-3">
                 <div class="menu-item">
                     <img src="https://www.jiomart.com/images/product/original/491934861/medha-taazaa-dahi-400-g-pouch-product-images-o491934861-p590086868-0-202409131747.jpg?im=Resize=(420,420)" alt="Dahi" class="product-thumb">
                     <div class="item-details">
@@ -260,7 +284,7 @@
 
             <div class="col-12 section-header-container"><span class="section-label">🧀 Rich Dairy</span></div>
 
-            <div class="col-lg-6 col-md-12 product-card">
+            <div class="col-lg-6 col-md-12 col-12 product-card mb-3">
                 <div class="menu-item">
                     <img src="https://jmf.coop/wp-content/uploads/2018/06/prod_paneer.jpg" alt="Paneer" class="product-thumb">
                     <div class="item-details">
@@ -272,7 +296,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-6 col-md-12 product-card">
+            <div class="col-lg-6 col-md-12 col-12 product-card mb-3">
                 <div class="menu-item">
                     <img src="https://5.imimg.com/data5/SELLER/Default/2023/10/353031125/LN/AS/KF/189456110/fresh-mawa-500x500.jpg" alt="Khowa" class="product-thumb">
                     <div class="item-details">
@@ -286,7 +310,7 @@
 
              <div class="col-12 section-header-container"><span class="section-label">🥤 Drinks</span></div>
 
-             <div class="col-lg-6 col-md-12 product-card">
+             <div class="col-lg-6 col-md-12 col-12 product-card mb-3">
                  <div class="menu-item">
                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa1nS9JP2aifUwc-QjBkeUiuSiQAtXdYA8Zw&s" alt="Lassi" class="product-thumb">
                      <div class="item-details">
@@ -300,7 +324,7 @@
 
             <div class="col-12 section-header-container"><span class="section-label">🍮 Sweets</span></div>
 
-            <div class="col-lg-6 col-md-12 product-card">
+            <div class="col-lg-6 col-md-12 col-12 product-card mb-3">
                 <div class="menu-item">
                     <img src="https://www.jiomart.com/images/product/original/491934863/medha-mishti-doi-80-g-cup-product-images-o491934863-p590086863-0-202408010051.jpg?im=Resize=(1000,1000)" alt="Mitha Dahi" class="product-thumb">
                     <div class="item-details">
@@ -312,7 +336,7 @@
                 </div>
             </div>
 
-             <div class="col-lg-6 col-md-12 product-card">
+             <div class="col-lg-6 col-md-12 col-12 product-card mb-3">
                 <div class="menu-item">
                     <img src="https://i.ytimg.com/vi/E9v-x8IspCw/oardefault.jpg?sqp=-oaymwEYCJUDENAFSFqQAgHyq4qpAwcIARUAAIhC&rs=AOn4CLCNMwcIyv5uK23kaD1njsKg5qUw7g" alt="Rabdi" class="product-thumb">
                     <div class="item-details">
@@ -324,7 +348,7 @@
                 </div>
             </div>
 
-             <div class="col-lg-6 col-md-12 product-card">
+             <div class="col-lg-6 col-md-12 col-12 product-card mb-3">
                 <div class="menu-item">
                     <img src="https://newswing.com/wp-content/uploads/2022/10/medha.jpg" alt="Peda" class="product-thumb">
                     <div class="item-details">
@@ -336,7 +360,7 @@
                 </div>
             </div>
 
-             <div class="col-lg-6 col-md-12 product-card">
+             <div class="col-lg-6 col-md-12 col-12 product-card mb-3">
                 <div class="menu-item">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdv6JZf3fgFXwuPJBPIurBbCbCQzi0G_2NpQ&s" alt="Laddu" class="product-thumb">
                     <div class="item-details">
@@ -349,7 +373,7 @@
             </div>
 
         </div> 
-        <div style="height: 120px;"></div>
+        <div style="height: 100px;"></div>
     </div>
 
     <a href="tel:+919934506226" class="btn-call-floating">
@@ -367,8 +391,10 @@
                 title = cards[i].querySelector(".item-name");
                 if (title.innerText.toUpperCase().indexOf(filter) > -1) {
                     cards[i].style.display = "";
+                    cards[i].classList.add("mb-3"); // Keep spacing when filtering
                 } else {
                     cards[i].style.display = "none";
+                    cards[i].classList.remove("mb-3");
                 }
             }
         }
